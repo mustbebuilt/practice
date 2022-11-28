@@ -15,8 +15,6 @@ const myControl = require("../controllers/mongofunc.js");
 
 
 
-
-
 router.get("/profile/:userID", (req, res) => {
   myControl.getItem(req, res, "profile");
   // res.send("hello")
@@ -59,10 +57,7 @@ router.get("/login", urlencodedParser, (req, res) => {
 // link in burger menu to homepage 
 router.get("/home", (req, res) => {
   return res.render("home", {
-    title: "Homepage",
-    myHeading: "My Crawls",
-    myHeading2: "Suggested Crawls",
-    msg2 :"Crawl into the weekend"
+  
     
   });
 });
@@ -103,10 +98,7 @@ router.get("/home", (req, res) => {
 // link in burger menu to homepage 
 router.get("/home", (req, res) => {
   return res.render("home", {
-    title: "Homepage",
-    myHeading: "My Crawls",
-    myHeading2: "Suggested Crawls",
-    msg2 :"Crawl into the weekend"
+   
     
   });
 });
@@ -134,9 +126,7 @@ router.get("/logout", (req, res) => {
 //get route to render signup page
 router.get("/signup", (req, res) => {
   return res.render("signup", {
-    title: "Crawl Space",
-    myHeading: "Sign Up",
-    msg2 :"Crawl into the weekend"
+   
   });
 });
 
