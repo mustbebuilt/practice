@@ -1,0 +1,396 @@
+body {
+    background-color:  #242526;
+    height: 100%;
+}
+      
+.crawlspace {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; 
+    margin-top: 30vh;
+}
+
+.crawlspaceHome {
+    color: white;
+    margin-top: 1vh;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    justify-content: center;
+    display:flex;
+    
+  }
+
+.crawlspaceInput {
+  margin-top: 45%;
+}
+
+
+.button {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    display: flex; 
+    color: white;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none; 
+    width: 40%;
+    margin: auto;
+    border-radius: 5px;
+  
+    
+}
+
+.greenButton {
+    background-color: #4b6043;
+}
+
+.almostBlackButton {
+    background-color: #1e1e1f;
+}
+
+.signUpButton {
+    margin-top: 10px; 
+}
+
+.textStyles {
+    display: flex; 
+    color: white;
+    font-size: 15px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+/* Sub headings */
+.textStylesTitle {
+  display:flex;
+  color: white;
+  font-size: 25px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;;
+}
+
+.labels {
+    padding: 10px;
+    text-align: start;
+    display: block;
+}
+
+.textStylesCapital {
+    text-transform: uppercase;
+    transform: scale(1, 0.9);
+}
+
+.textStylesSliders {
+  color: black;
+font-size: 25px;
+}
+
+.crawlName {
+  padding: 10px;
+}
+
+.username, .password, .registerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+.loginButton {
+    margin-top: 15px;
+}
+
+.formInput {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+.forgotPassword, .signUp {
+    display: flex;
+    justify-content: center;
+    text-decoration: none; 
+    margin-top: 10px;
+}
+
+/* Footer styling - uniform acorss web app */
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: 20px;
+ }
+
+.footerSignUp {
+    width: 80%;
+}
+
+.motto, .copywrite {
+    display: flex;
+    justify-content: center;
+    margin-top: -0vh;   
+}
+
+
+
+
+/* Slider CSS */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .slider {
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .slides {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slides::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .slides::-webkit-scrollbar-thumb {
+    background: #242526;
+    border-radius: 10px;
+  }
+
+  .slides::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .slides > div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 240px;
+    height: 215px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background: #eee;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    filter: grayscale(40%); 
+  }
+
+  .suggestedSlides {
+    display: flex;
+    width: 240px;
+    height: 215px;
+    border-radius: 10px;
+  }
+
+.img {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+  }
+  
+.suggestedCrawlsSlider {
+    margin-top: 30px;
+}
+
+.myFriendsSlider {
+  justify-content: center;
+  margin-left: 5.5px;
+}
+
+
+.myFriends > div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 65px;
+    height: 65px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: #eee;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    margin-bottom: 15px;
+    filter: grayscale(40%); 
+  }
+
+
+/* Header and Burger menu CSS */
+
+/* Below is the box where links reside once icon clicked */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  /* Style navigation menu links */
+  .topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+  }
+  
+  /* Style the hamburger menu */
+  .topnav a.icon {
+    background: #242526;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 24px;
+  }
+
+  
+  /* Style the active link (or home/logo) */
+  .active {
+    background-color: #242526;
+    color: white;
+  }
+
+  .crawlsLabel {
+    background-color: black;
+  }
+
+  /* pop-up styling for map */
+
+  .popup-container{
+    background-color: rgb(2, 110, 205);
+    width: 150px;
+    color: white;
+    text-align: center;
+    border-radius: 1px;
+    padding: 2px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -80px;
+  }
+
+  .mapToggleInfo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.mapContainer {
+  height: 50%;
+}
+
+
+
+/* Profile CSS */
+
+.profilePhoto, .editProfile {
+  margin-top: 15px;
+  margin-left: 5%;
+  border-radius: 50%;
+  background: #eee;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profilePhoto {
+  display: flex;
+  margin-right: 8px;
+  width: 90px;
+  height: 90px;
+} 
+
+.editProfile {
+  margin-top: 60px;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+}
+
+
+.float-container {
+  padding: 20px;
+} 
+
+
+.float-child {
+  float: left;
+  justify-content: center;
+} 
+
+
+.profileInfo {
+  display: flex;
+  width: 90%;
+  height: 250px;
+  margin-top: 25px;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 10px;
+  background: #333;
+}
+
+
+.deleteAccount {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.usernameProfile, .emailProfile, .dobProfile {
+  position: absolute;
+  display: flex; 
+  margin-left: 5%;
+}
+
+
+.welcomeMessage {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  margin-left: 8%;
+}
+
+.usernameProfile {
+  margin-top: 90px;
+}
+
+.emailProfile {
+  margin-top: 125px;
+}
+
+.dobProfile {
+  margin-top: 160px;
+}
+
+.usernameProfileInput, .emailProfileInput, .dobProfileInput {
+  margin-left: 30%;
+} 

@@ -1,0 +1,54 @@
+<%- include ('header'); %> 
+<div class="container">
+    <h2>profile</h2>
+
+
+<body>
+    <div class="float-container">
+
+        <div class="float-child profilePhoto">
+            <img id="friend-3"
+            src="images/Vi.png"
+            alt="Friend profile"
+            width="90"
+            height="90"/>
+        </div>
+        
+        <div class="float-child">
+            <button class="editProfile fa fa-pencil" alt="clickable button to edit profile informatiion"></button> 
+          </div>
+        </div>
+        
+      </div><br>
+
+<div class = "profileInfo">
+    <div class="textStyles textStylesCapital welcomeMessage">Welcome to your local,  
+    </div>
+    <div class="textStyles usernameProfile">Username</div>
+    <div class="textStyles usernameProfile usernameProfileInput"><%= user.username %>
+    
+    </div>
+    <div class="textStyles emailProfile">Email</div>
+    <div class="textStyles emailProfile emailProfileInput"><a href="<%= user_id %>"><%= user.useremail %></a></div>
+    <div class="textStyles dobProfile">Date of birth</div>
+    <div class="textStyles dobProfile dobProfileInput"><a href="<%= user_id %>"><%= user.userdob %></a></div>
+</div>
+
+
+<div class = "button textStyles deleteAccount">
+    Remove account 
+</div>
+
+<div class = "deleteButton"></div>
+<a class = "button greenButton" href="/profile/delete/userID">Delete</a>
+
+
+<a class = "button greenButton" href="/profile/delete/<%= user_id %>" class="delete">Delete</a>
+
+
+
+</body>
+
+
+<%- include('footer'); %>
+
