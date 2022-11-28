@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
-const { body, validationResult } = require('express-validator');
+const { body, validationResult } = require("express-validator");
 
 const app = express();
 // app.use(express);
@@ -12,23 +12,15 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 // add myControllers
 const myControl = require("../controllers/mongofunc.js");
 
-
-
-
-
-
 router.get("/profile/:userID", (req, res) => {
   myControl.getItem(req, res, "profile");
   // res.send("hello")
 });
 
-
-
 router.get("/profile", (req, res) => {
   myControl.getItem(req, res, "profile");
   // res.send("hello")
 });
-
 
 router.get("profile/edit/:userID", (req, res) => {
   myControl.getItem(req, res, "edit", "Edit username: ");
@@ -38,42 +30,31 @@ router.post("views/profile/edit", (req, res) => {
   myControl.amendItem(req, res);
 });
 
-
 router.post("profile/delete/:userID", (req, res) => {
   myControl.deleteItem(req, res);
 });
 
-
-
-
-//post route to log in to CrawlSpace
+// just show the login
 router.get("/login", (req, res) => {
-  return res.render("login")
+  return res.render("login");
 });
-
+// post to the controller
 router.post("/login", urlencodedParser, (req, res) => {
-  console.info("I was logged in")
+  myControl.login(req, res);
 });
 
-
-
-
-// link in burger menu to homepage 
+// link in burger menu to homepage
 router.get("/home", (req, res) => {
   return res.render("home", {
     title: "Homepage",
     myHeading: "My Crawls",
     myHeading2: "Suggested Crawls",
-    msg2 :"Crawl into the weekend"
-    
+    msg2: "Crawl into the weekend",
   });
 });
 
-
-
-
 // // example user server side validation via "express-validator"
-// router.post("/login", urlencodedParser,  
+// router.post("/login", urlencodedParser,
 
 // (req, res) => {
 //   console.log("login")
@@ -81,7 +62,7 @@ router.get("/home", (req, res) => {
 //  if (!errors.isEmpty()) {
 //    //return res.status(400).json({ errors: errors.array() });
 //    let erArray = errors.array();
-//    let erMsg = `${erArray[0].param} error - ${erArray[0].msg}` 
+//    let erMsg = `${erArray[0].param} error - ${erArray[0].msg}`
 //    //return res.redirect("/login")
 //    return res.render("login", {
 //                title: "Login",
@@ -92,37 +73,21 @@ router.get("/home", (req, res) => {
 //  myControllers.login(req, res);
 // });
 
-
-
-
-
-
-
-
-
-
-
-// link in burger menu to homepage 
+// link in burger menu to homepage
 router.get("/home", (req, res) => {
   return res.render("home", {
     title: "Homepage",
     myHeading: "My Crawls",
     myHeading2: "Suggested Crawls",
-    msg2 :"Crawl into the weekend"
-    
+    msg2: "Crawl into the weekend",
   });
 });
 
-
-
 //link to log out
 router.get("/logout", (req, res) => {
-  res.clearCookie("userName")
+  res.clearCookie("userName");
   // document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-  return res.redirect('http://localhost:3000/', 301, {
-  
-    
-  });
+  return res.redirect("http://localhost:3000/", 301, {});
 });
 
 // router.get("/login", (req, res) => {
@@ -138,9 +103,8 @@ router.get("/signup", (req, res) => {
   return res.render("signup", {
     title: "Crawl Space",
     myHeading: "Sign Up",
-    msg2 :"Crawl into the weekend"
+    msg2: "Crawl into the weekend",
   });
 });
-
 
 module.exports = router;

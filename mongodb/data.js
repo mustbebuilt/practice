@@ -8,15 +8,9 @@ const client = new MongoClient(dbo, {
 var dbConnection;
 // alternative export option - methods as objects
 module.exports = {
-  connectToServer: function (callback) {
-    client.connect(function (err, db) {
-      // Verify we got a good "db" object
-      if (db) {
-        dbConnection = db.db("pubsDB");
-        console.log("Successfully connected to MongoDB.");
-      }
-      return callback(err);
-    });
+  connectToServer: async function () {
+    await client.connect();
+    dbConnection = client.db("pubsDB");
   },
 
   getDb: function () {
