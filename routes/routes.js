@@ -47,10 +47,12 @@ router.post("profile/delete/:userID", (req, res) => {
 
 
 //post route to log in to CrawlSpace
-router.get("/login", urlencodedParser, (req, res) => {
-  console.log("posted to login")
-  console.log(req.body)
-  myControl.login(req, res);
+router.get("/login", (req, res) => {
+  return res.render("login")
+});
+
+router.post("/login", urlencodedParser, (req, res) => {
+  console.info("I was logged in")
 });
 
 
