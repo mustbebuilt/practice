@@ -11,20 +11,10 @@ var ObjectId = dbo.getObjectId();
 
 
 module.exports = {
-  index: function (req, res) {
-    console.dir(req.session);
-    return res.render("index", {
-      title: "Welcome",
-      message: "Demo Node Site.",
-    });
-  },
+
 
   main: function (req, res) {
     return res.render("main", {
-      title: "EJS Example from Parts",
-      message: "Hello Template built in parts",
-      showMsg: true,
-      headingOne: "Page made from parts",
     });
   },
 

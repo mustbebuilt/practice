@@ -13,12 +13,32 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 const myControl = require("../controllers/mongofunc.js");
 
 
-
-
-router.get("/profile/:userID", (req, res) => {
-  myControl.getItem(req, res, "profile");
-  // res.send("hello")
+router.get("/", (req, res) => {
+  myControllers.main(req, res);
 });
+
+
+
+//get route to render signup page
+router.get("/signup", (req, res) => {
+  return res.render("signup", {
+   
+  });
+});
+
+//post route to log in to CrawlSpace
+router.get("/login", (req, res) => {
+  // console.log("posted to login")
+  // console.log(req.body)
+  myControl.login(req, res);
+});
+
+// link in burger menu to homepage 
+router.get("/home", (req, res) => {
+  return res.render("home", { 
+  });
+});
+
 
 
 
@@ -26,6 +46,14 @@ router.get("/profile", (req, res) => {
   myControl.getItem(req, res, "profile");
   // res.send("hello")
 });
+
+
+router.get("/profile/:userID", (req, res) => {
+  myControl.getItem(req, res, "profile");
+});
+
+
+
 
 
 router.get("profile/edit/:userID", (req, res) => {
@@ -44,23 +72,9 @@ router.post("profile/delete/:userID", (req, res) => {
 
 
 
-//post route to log in to CrawlSpace
-router.get("/login", urlencodedParser, (req, res) => {
-  console.log("posted to login")
-  console.log(req.body)
-  myControl.login(req, res);
-});
 
 
 
-
-// link in burger menu to homepage 
-router.get("/home", (req, res) => {
-  return res.render("home", {
-  
-    
-  });
-});
 
 
 
@@ -91,20 +105,6 @@ router.get("/home", (req, res) => {
 
 
 
-
-
-
-
-// link in burger menu to homepage 
-router.get("/home", (req, res) => {
-  return res.render("home", {
-   
-    
-  });
-});
-
-
-
 //link to log out
 router.get("/logout", (req, res) => {
   res.clearCookie("userName")
@@ -123,12 +123,6 @@ router.get("/logout", (req, res) => {
 //   });
 // });
 
-//get route to render signup page
-router.get("/signup", (req, res) => {
-  return res.render("signup", {
-   
-  });
-});
 
 
 module.exports = router;
