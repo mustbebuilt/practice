@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const port = 7000;
+const port = 7001;
 
 const app = express();
 
@@ -21,8 +21,6 @@ app.use((req, res, next) => {
   console.dir(req.url);
   next();
 });
-
-
 
 // remove for sample files
 app.use((req, res, next) => {
