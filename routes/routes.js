@@ -30,9 +30,24 @@ router.post("views/profile/edit", (req, res) => {
   myControl.amendItem(req, res);
 });
 
-router.post("profile/delete/:userID", (req, res) => {
-  myControl.deleteItem(req, res);
+router.get("/delete/:userID", (req, res) => {
+  return res.render("delete", {
+  user_id: req.params.userID
 });
+});
+
+router.post("/delete/:userID", (req, res) => {
+  if(!req.session.login){
+    return res.redirect("/");
+  }else{
+  myControllers.deleteItem(req, res);
+  }
+});
+
+
+// router.post("profile/delete/:userID", (req, res) => {
+//   myControl.deleteItem(req, res);
+// });
 
 // just show the login
 router.get("/login", (req, res) => {
@@ -44,12 +59,9 @@ router.post("/login", urlencodedParser, (req, res) => {
 });
 
 // link in burger menu to homepage
-router.get("/home", (req, res) => {
+router.get("/home/:userID", (req, res) => {
   return res.render("home", {
-    title: "Homepage",
-    myHeading: "My Crawls",
-    myHeading2: "Suggested Crawls",
-    msg2: "Crawl into the weekend",
+    user_id: req.params.userID
   });
 });
 
@@ -101,10 +113,15 @@ router.get("/logout", (req, res) => {
 //get route to render signup page
 router.get("/signup", (req, res) => {
   return res.render("signup", {
-    title: "Crawl Space",
-    myHeading: "Sign Up",
-    msg2: "Crawl into the weekend",
+  
   });
 });
+
+router.post("/signup/:userID", urlencodedParser, (req, res) => {
+  myControl.signUp(req, res);
+});
+
+
+
 
 module.exports = router;

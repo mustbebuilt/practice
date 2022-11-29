@@ -54,6 +54,7 @@ module.exports = {
     // console.dir(req.body);
     let username = req.body.username;
     let password = req.body.password;
+    
     dbo
       .getDb()
       .collection("customers")
@@ -65,12 +66,12 @@ module.exports = {
         if (docs.length > 0) {
           ///////
           bcrypt.compare(
-            req.body.password,
-            docs[0].password,
+            password,
+            docs[0].userpassword,
             function (err, result) {
               console.info(result);
               if (result == true) {
-                res.redirect("/profile/" + docs[0]._id);
+                res.redirect("/home/" + docs[0]._id);
               } else {
                 return res.render("login", {
                   title: "Login",
@@ -87,4 +88,30 @@ module.exports = {
         }
       });
   },
-};
+
+
+
+deleteItem: function (req, res) {
+  console.info("Delete Form controller");
+  var formData = req.body;
+  let userID = formData.userID;
+  var o_id = new ObjectId(userID);
+  console.info(userID);
+  console.dir(o_id);
+  dbo
+    .getDb()
+    .collection("customers")
+    .deleteOne({ _id: o_id }, function (err, dbResp) {
+      if (err) {
+        console.error(err);
+      }
+      console.dir(dbResp);
+      if (dbResp.deletedCount == 1) {
+        res.redirect("/");
+      } else {
+        res.redirect("/error");
+      }
+    });
+},
+
+}

@@ -1,26 +1,14 @@
-<%- include('header') %>
+<%- include('header'); %>
 
 
 
 <div class="textStyles textStylesCapital ">Are you sure you want to abandon the crawl?  
 </div>
 
-    
-    <!-- <div class= "deleteOrStay">
-          <div class = "Delete"></div>
-                <a class = "button greenButton" href="/">Delete</a>
-          <div class = "stay">
-                <a class = "button almostBlackButton signUpButton" href="/profile">Sign up</a> 
-    </div> -->
-    
-    <div class="container">
-        <h1>Delete UserID: <%= userID.username %></h1>
-        <form method="post" action="/delete">
-          <input type="hidden" name="userID" id="userID" value="<%= userID %>" />
-          <div>
-            <input type="submit" value="Delete" class="delete" />
-          </div>
-        </form>
+
       
-        <p><a href="/profile" class="add">stay</a></p>
-      </div>
+<a class = "button almostBlackButton" href="/delete/<%= user_id %>" class="button" onclick=(deleteUser)>Delete</a>
+        <a class = "button greenButton" href="/profile/<%= user_id %>" class="button">Crawl On!</a>
+
+
+      
